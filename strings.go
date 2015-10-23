@@ -1,6 +1,7 @@
-package golib
+package main
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -33,4 +34,19 @@ func Snake2Camel(s string) string {
 		return strings.ToUpper(m[1])
 	}
 	return re.ReplaceAllStringFunc(s, cb)
+}
+
+// LenFontWidth -
+//   Return font width.
+func LenFontWidth(s string) int {
+	// charactor count
+	lenc := len([]rune(s))
+	// bite count
+	lenb := len(s)
+
+	return lenc + (lenb - lenc/2)
+}
+
+func main() {
+	fmt.Print(LenFontWidth("あああ"))
 }
