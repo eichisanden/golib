@@ -1,2 +1,2 @@
-# a1strings
-Utility about string for Go lang
+# golib
+My utility for Go lang
