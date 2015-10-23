@@ -1,4 +1,4 @@
-package a1string
+package golib
 
 import (
 	"regexp"
