@@ -7,15 +7,15 @@ func TestRpad(t *testing.T) {
 	actual := a1strings.Rpad("abc", 5)
 	expected := "abc  "
 	if actual != expected {
-		t.Errorf("got %v\nwant %v", actual, expected)
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
 	}
 }
 
-func TestRpadMuliBite(t *testing.T) {
-	actual := a1strings.Rpad("あいう", 5)
-	expected := "あいう  "
+func TestRpadMultiByte(t *testing.T) {
+	actual := a1strings.Rpad("あいう", 12)
+	expected := "あいう   "
 	if actual != expected {
-		t.Errorf("got %v\nwant %v", actual, expected)
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
 	}
 }
 
@@ -23,15 +23,47 @@ func TestLpad(t *testing.T) {
 	actual := a1strings.Lpad("abc", 5)
 	expected := "  abc"
 	if actual != expected {
-		t.Errorf("got %v\nwant %v", actual, expected)
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
 	}
 }
 
 func TestLpadMultiByte(t *testing.T) {
-	actual := a1strings.Lpad("あいう", 5)
+	actual := a1strings.Lpad("あいう", 13)
+	expected := "    あいう"
+	if actual != expected {
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
+	}
+}
+
+func TestRpadFontWidth(t *testing.T) {
+	actual := a1strings.RpadFontWidth("abc", 5)
+	expected := "abc  "
+	if actual != expected {
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
+	}
+}
+
+func TestRpadFontWidthMultiBite(t *testing.T) {
+	actual := a1strings.RpadFontWidth("あいう", 8)
+	expected := "あいう  "
+	if actual != expected {
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
+	}
+}
+
+func TestLpadFontWidth(t *testing.T) {
+	actual := a1strings.LpadFontWidth("abc", 5)
+	expected := "  abc"
+	if actual != expected {
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
+	}
+}
+
+func TestLpadFontWidthMultiByte(t *testing.T) {
+	actual := a1strings.LpadFontWidth("あいう", 8)
 	expected := "  あいう"
 	if actual != expected {
-		t.Errorf("got %v\nwant %v", actual, expected)
+		t.Errorf("got @@%v@@\nwant @@%v@@", actual, expected)
 	}
 }
 
