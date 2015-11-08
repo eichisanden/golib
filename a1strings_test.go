@@ -1,7 +1,9 @@
 package a1strings
 
-import "testing"
-import "../golib"
+import (
+	"../golib"
+	"testing"
+)
 
 func TestRpad(t *testing.T) {
 	actual := a1strings.Rpad("abc", 5)
