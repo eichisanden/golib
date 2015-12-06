@@ -1,3 +1,4 @@
+// a1string is utilities for string
 package a1strings
 
 import (
@@ -5,45 +6,40 @@ import (
 	"strings"
 )
 
-// Rpad -
-//   Padding space to right.
-func Rpad(s string, maxlen int) string {
-	if maxlen > len(s) {
-		return s + strings.Repeat(" ", maxlen-len(s))
+// Rpad pads spaces to right end until it reaches the specific byte length.
+func Rpad(s string, length int) string {
+	if length > len(s) {
+		return s + strings.Repeat(" ", length - len(s))
 	}
 	return s
 }
 
-// Lpad -
-//   Padding space to left.
-func Lpad(s string, maxlen int) string {
-	if maxlen > len(s) {
-		return strings.Repeat(" ", maxlen-len(s)) + s
+// Lpad pads spaces to right end until it reaches the specific byte length.
+func Lpad(s string, length int) string {
+	if length > len(s) {
+		return strings.Repeat(" ", length-len(s)) + s
 	}
 	return s
 }
 
-// RpadFontWidth -
-//   Padding space to right.
-func RpadFontWidth(s string, maxlen int) string {
-	if maxlen > LenFontWidth(s) {
-		return s + strings.Repeat(" ", maxlen-LenFontWidth(s))
+// RpadFontWidth pads spaces to right end until it reaches the specific font-wide length.
+func RpadFontWidth(s string, length int) string {
+	if length > LenFontWidth(s) {
+		return s + strings.Repeat(" ", length-LenFontWidth(s))
 	}
 	return s
 }
 
-// LpadFontWidth -
-//   Padding space to left.
-func LpadFontWidth(s string, maxlen int) string {
-	if maxlen > LenFontWidth(s) {
-		return strings.Repeat(" ", maxlen-LenFontWidth(s)) + s
+// LpadFontWidth pads spaces to right end until it reaches the specific font-wide length.
+func LpadFontWidth(s string, length int) string {
+	if length > LenFontWidth(s) {
+		return strings.Repeat(" ", length-LenFontWidth(s)) + s
 	}
 	return s
 }
 
-// LenFontWidth -
-//   Return font width.
-//   This function treat Half wide katakana lazy. It counted 2 :P
+// LenFontWidth return display font width.
+// This function treats half wide katakana lazy(Correct return value is 1 but this function returns 2)
 func LenFontWidth(s string) int {
 	lenc := len([]rune(s))
 	lenb := len(s)
@@ -55,8 +51,7 @@ func LenFontWidth(s string) int {
 	}
 }
 
-// Snake2Camel -
-//   Change snake case string to lower camel case.
+// Snake2Camel returns lower camel case string from snake case string.
 func Snake2Camel(s string) string {
 	re, _ := regexp.Compile("_([a-z0-9])")
 	cb := func(s2 string) string {
